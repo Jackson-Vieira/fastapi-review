@@ -2,6 +2,7 @@ import pytest
 from sqlalchemy.orm import Session
 
 from app.db.models import Category as CategoryModel
+from app.errors.category import CategoryNotFoundError
 from app.schemas.category import Category, CategoryOutput
 from app.use_cases.category import CategoryUseCases
 
@@ -54,6 +55,31 @@ def test_list_categories_uc(db_session, factory_categories):
 
     categories = uc.get_all()
     
-
     assert len(categories) == 3
     assert type(categories[0]) == CategoryOutput
+    assert categories[0].name == factory_categories[0].name
+
+def test_delete_category_uc(db_session, factory_categories):
+    uc = CategoryUseCases(db_session)
+
+    category = Category(
+        name="Category test",
+        slug="category-test"
+    )
+
+    category_on_db = uc.create_category(category)
+    uc.delete_by_id(category_on_db.id)
+
+    assert len(factory_categories) == 3
+
+    categories_on_db = db_session.query(CategoryModel).all() 
+
+    assert len(categories_on_db) == 3
+    assert categories_on_db[-1].name == factory_categories[-1].name
+
+
+def test_delete_with_invalid_category_id(db_session, factory_categories):
+    uc = CategoryUseCases(db_session)
+
+    with pytest.raises(CategoryNotFoundError):
+        uc.delete_by_id(99)

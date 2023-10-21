@@ -2,20 +2,20 @@
 
 ## Categoria
 
-- add categoria
+- add categoria [X]
 {
     name,
     slug
 }
 
-- listar categoria 
+- listar categorias [X]
 {
    id,
    name,
    slug 
 }
 
-- deletar categoria
+- deletar categoria [X]
 {
     id
 }
