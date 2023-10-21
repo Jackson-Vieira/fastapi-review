@@ -4,7 +4,6 @@ from app.routes.category_routes import router as category_routes
 
 app = FastAPI()
 
-
 @app.get("/")
 def health_check():
     return True

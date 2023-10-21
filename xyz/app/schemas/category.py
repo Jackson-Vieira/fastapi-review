@@ -12,3 +12,6 @@ class Category(BaseModel):
         if not re.match('^([a-z]|-|_)+$', value):
             raise ValueError('invalid slug')
         return value
+
+class CategoryOutput(Category):
+    id: int
