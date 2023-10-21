@@ -8,6 +8,6 @@ router = APIRouter()
 # query param 
 # only add in functions params
 
-@router.get('/convert/{from_currency}')
-def convert(from_currency: str, to_currencies: str, price: float):
+@router.get('/converter/{from_currency}')
+def converter(from_currency: str, to_currencies: str, price: float):
     return True
