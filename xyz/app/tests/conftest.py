@@ -33,3 +33,11 @@ def factory_categories(db_session):
         db_session.delete(category)
     db_session.commit()
 
+
+@pytest.fixture
+def factory_category(db_session):
+    category = CategoryModel(name="Test", slug="test")
+    db_session.add(category)
+    db_session.commit()
+    db_session.refresh(category)
+    yield category
