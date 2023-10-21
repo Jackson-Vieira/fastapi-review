@@ -1,8 +1,8 @@
 """add categories table
 
-Revision ID: 4ffbcf60c335
+Revision ID: ab04121c3dc3
 Revises: 
-Create Date: 2023-10-21 13:12:01.075625
+Create Date: 2023-10-21 15:09:07.850920
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '4ffbcf60c335'
+revision: str = 'ab04121c3dc3'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
