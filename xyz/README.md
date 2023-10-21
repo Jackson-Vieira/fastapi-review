@@ -30,3 +30,20 @@ erDiagram
     Product ||--|| Category : has
 ```
 
+
+## SETUP
+
+## Running migrations with allembic
+
+### First setup
+
+```sh
+alembic init migrations
+alembic revision --autogenerate -m "add categories table"
+```
+
+### Existent setup
+
+```sh
+alembic upgrade head
+```
