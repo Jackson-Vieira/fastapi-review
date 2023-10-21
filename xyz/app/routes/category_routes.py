@@ -7,7 +7,7 @@ from app.use_cases.category import CategoryUseCases
 
 router = APIRouter()
 
-@router.post('/category')
+@router.post('/categories')
 def add_category(
     category: Category,
     db_session: Session = Depends(get_db_session)
@@ -15,3 +15,11 @@ def add_category(
     uc = CategoryUseCases(db_session)
     uc.create_category(category=category)
     return Response(status_code=status.HTTP_201_CREATED)
+
+@router.get('/categories')
+def list_categories(
+    db_session: Session = Depends(get_db_session)
+):
+    uc = CategoryUseCases(db_session)
+    response = uc.get_all()
+    return response
