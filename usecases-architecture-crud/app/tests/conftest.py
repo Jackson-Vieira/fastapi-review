@@ -12,6 +12,9 @@ def db_session():
     finally:
         session.close()
 
+def clean_up_db(db_session):
+    pass
+
 @pytest.fixture
 def factory_categories(db_session):
     categories = [
