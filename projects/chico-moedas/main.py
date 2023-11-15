@@ -5,8 +5,7 @@ from routers import router
 app = FastAPI()
 app.include_router(router=router)
 
-@app.get('/health-check')
+
+@app.get("/health-check")
 def health_check():
-    return {
-        "pai": "On"
-    }
+    return {"pai": "On"}
