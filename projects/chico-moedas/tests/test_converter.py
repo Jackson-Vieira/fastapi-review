@@ -1,7 +1,7 @@
 import pytest
 import os
 from aioresponses import aioresponses
-from converter import async_converter, CurrencyConverterError
+from app.converter import async_converter, CurrencyConverterError
 
 API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
 

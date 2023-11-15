@@ -1,7 +1,6 @@
 import os
 from typing import Dict
 from aiohttp import ClientSession
-import math
 
 
 class CurrencyConverter:
